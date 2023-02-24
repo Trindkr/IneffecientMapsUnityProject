@@ -14,7 +14,7 @@ public class ManagePanelsScript : MonoBehaviour
         directionsPanel = GameObject.Find("Panel Directions"); 
         navigationPanel = GameObject.Find("Panel Navigation"); 
 
-        startPanel.SetActive(false);
+        //startPanel.SetActive(false);
         directionsPanel.SetActive(false);
         navigationPanel.SetActive(false);
     }
