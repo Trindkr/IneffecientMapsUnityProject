@@ -23,8 +23,7 @@ public class ManageMapScript : MonoBehaviour
         if (transform.localScale.y <= minSize)
         {
             //What should happen when the map is at its smallest size?
-            Debug.Log("Map is at its smallest size");
-            break;
+            Debug.Log("Map is at its smallest size"); //remove this when done, otherwise it will spam the console (°ー°〃)
         }
 
         //acceloration = INSERT CODE HERE;
