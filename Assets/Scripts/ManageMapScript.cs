@@ -19,18 +19,20 @@ public class ManageMapScript : MonoBehaviour
     float scaleLarger;
 
 
-    public float speed = 2f; // The speed at which the object will move
-    public float range = 5f; // The range within which the object will move
+    public float moveSpeed = 2.0f;
+    public float borderSize = 50.0f;
+    Camera mainCamera;
 
     private Vector3 targetPosition; // The position the object is flying towards
 
     // Start is called before the first frame update
     void Start()
     {
+        mainCamera = Camera.main;
         countDown = 0.0f;
         countUp = 0.0f;
 
-        targetPosition = transform.position + Random.insideUnitSphere * range;
+        targetPosition = GetRandomPositionWithinBorder();
     }
 
     // Update is called once per frame
@@ -69,11 +71,31 @@ public class ManageMapScript : MonoBehaviour
         // If the object has reached its target position, set a new random target position
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
-            targetPosition = transform.position + Random.insideUnitSphere * range;
+            targetPosition = GetRandomPositionWithinBorder();
         }
 
         // Move the object towards its target position
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+        Vector3 moveDirection = (targetPosition - transform.position).normalized;
+        float distanceToCamera = Vector3.Distance(transform.position, mainCamera.transform.position);
+        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+        transform.position = mainCamera.transform.position + (transform.position - mainCamera.transform.position).normalized * distanceToCamera;
        
     }
+
+     Vector3 GetRandomPositionWithinBorder()
+    {
+        // Get a random point within the border by using Random.insideUnitSphere
+        Vector3 randomPoint = Random.insideUnitSphere * borderSize;
+
+        // Make sure the random point is within the border by clamping it to the border's bounds
+        randomPoint.x = Mathf.Clamp(randomPoint.x, -borderSize, borderSize);
+        randomPoint.y = Mathf.Clamp(randomPoint.y, -borderSize, borderSize);
+        randomPoint.z = Mathf.Clamp(randomPoint.z, -borderSize, borderSize);
+
+        // Set the random point's height to match the object's current height
+        randomPoint.y = transform.position.y;
+
+        return randomPoint;
+    }
+
 }
