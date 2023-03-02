@@ -7,7 +7,7 @@ public class LockToCameraScript : MonoBehaviour
 
     public Transform camTransform;
     public Vector3 camPos;
-    private float distanceFromCamera = 19;
+    private float distanceFromCamera = 15;
 
     void LateUpdate()
     {
