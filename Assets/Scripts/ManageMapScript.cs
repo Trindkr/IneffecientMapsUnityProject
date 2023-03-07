@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ManageMapScript : MonoBehaviour
 {
-    public float acceloration; 
+    public float acceleration; 
     public float duration = 10.0f; // 10 seconds
     float minSize;
     float maxSize;
@@ -28,7 +28,7 @@ public class ManageMapScript : MonoBehaviour
     void Start()
     {
         //remove this
-        acceloration = 1.0f; 
+        acceleration = 1.0f; 
     
         countDown = 0.0f;
         countUp = 0.0f;
@@ -59,7 +59,7 @@ public class ManageMapScript : MonoBehaviour
         }
 
         //acceloration = INSERT CODE HERE;
-        if(acceloration <= 0.0f && countDown < duration)
+        if(aacceleration <= 0.0f && countDown < duration)
         {
             countUp = 0.0f; //reset
             countDown += Time.deltaTime;
@@ -68,7 +68,7 @@ public class ManageMapScript : MonoBehaviour
             lastSmallestSize = transform.localScale.y;
         }
 
-        if(acceloration >= 10.0f) //TODO when acceloration part is done
+        if(acceleration >= 10.0f) //TODO when acceloration part is done
         {
             countDown = 0.0f; //reset
             countUp += Time.deltaTime;
