@@ -65,6 +65,7 @@ public class ManagePanelsScript : MonoBehaviour
     public void ShowNavigationPanel()
     {
         directionsPanel.SetActive(false);
+        endPanel.SetActive(false);
         playVideo(2);
         StartCoroutine(WaitForVideoEnd(3f));
         navigationPanel.SetActive(true);
