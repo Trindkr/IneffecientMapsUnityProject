@@ -59,7 +59,7 @@ public class ManageMapScript : MonoBehaviour
         }
 
         //acceloration = INSERT CODE HERE;
-        if(aacceleration <= 0.0f && countDown < duration)
+        if(acceleration <= 0.0f && countDown < duration)
         {
             countUp = 0.0f; //reset
             countDown += Time.deltaTime;
