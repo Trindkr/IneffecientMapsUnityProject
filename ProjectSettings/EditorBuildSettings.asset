@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map Chase Scene.unity
     guid: b8fbb29dc4b1e1f458c1e6f04d202825
+  - enabled: 1
+    path: Assets/Scenes/Return To Navigation Scene.unity
+    guid: a21f7bd51d2f014409e9d921702bd945
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}

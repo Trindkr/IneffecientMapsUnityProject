@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TriggerMapChaseSceneFromReturnSceneScript : MonoBehaviour
+public class TriggerMapChaseSceneScript : MonoBehaviour
 {
     public float rndmTime;
     // Start is called before the first frame update
@@ -24,6 +24,6 @@ public class TriggerMapChaseSceneFromReturnSceneScript : MonoBehaviour
 
     public void TriggerMapChaseScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
